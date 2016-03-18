@@ -28,7 +28,7 @@ public class SimpleSoapClient {
 
         // print SOAP Response
         log.info("Response SOAP Message:");
-        soapResponse.writeTo(System.out);
+        log.info(soapResponse.getSOAPBody().getTextContent());
 
         soapConnection.close();
     }
@@ -68,9 +68,8 @@ public class SimpleSoapClient {
         soapMessage.saveChanges();
 
         /* Print the request message */
-        System.out.print("Request SOAP Message:");
-        soapMessage.writeTo(System.out);
-        System.out.println();
+        log.info("Request SOAP Message:");
+        log.info(soapMessage.getSOAPBody().getTextContent());
 
         return soapMessage;
     }
